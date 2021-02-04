@@ -1,14 +1,22 @@
 node {
     def app
 
-    stage('Clone repository') {
-      
+    stage('Clone repository') {  
 
         checkout scm
     }
 
+    stage ('Install') {
+        sh 'npm install'
+    }
+
+    stage ('Build') {
+        sh 'npm build'
+    }
+
+
     stage('Build image') {
-  
+        echo "Starting Publish To Docker"
        app = docker.build("sujithkumar597/reacttodo")
     }
 
