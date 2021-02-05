@@ -1,7 +1,7 @@
 node ('node-npm') {
     
     stage('Clone repository') {  
-
+        sh 'apt-get update && apt-get install nodejs'
         checkout scm
     }
     stage ('Install') {
