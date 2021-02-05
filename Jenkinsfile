@@ -1,4 +1,4 @@
-node ('node-npm') {
+node ('node') {
     
     stage('Clone repository') {  
         sh 'apt-get update && apt-get install nodejs'
