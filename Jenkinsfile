@@ -1,6 +1,5 @@
-node {
-    def app
-
+node ('node-npm') {
+    
     stage('Clone repository') {  
 
         checkout scm
