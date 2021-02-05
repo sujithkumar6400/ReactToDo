@@ -1,7 +1,8 @@
-node ('node') {
-    
+node {
+    def app
+
     stage('Clone repository') {  
-        sh 'apt-get update && apt-get install nodejs'
+
         checkout scm
     }
     stage ('Install') {
