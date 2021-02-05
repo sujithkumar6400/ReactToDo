@@ -19,12 +19,4 @@ node {
          sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:2 .'
          sh 'docker image push sujithkumar597/reacttodo:2 .'
     }
-
-    stage('Push image') {
-        
-        docker.withRegistry('https://registry.hub.docker.com', 'git') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
-    }
 }
