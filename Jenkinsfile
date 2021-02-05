@@ -5,12 +5,6 @@ node {
 
         checkout scm
     }
-
-    stage ('Install NPM') {
-		
-        sh 'apt-get update && apt-get install nodejs'
-    }
-
     stage ('Install') {
         sh 'npm install'
     }
