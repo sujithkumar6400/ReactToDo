@@ -6,6 +6,7 @@ node {
         checkout scm
     }
     stage ('Install') {
+        sh 'apt-get update && apt-get install nodejs'
         sh 'npm install'
     }
 
