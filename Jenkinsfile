@@ -6,6 +6,7 @@ node {
        
     }
     stage ('Install') {
+        sh "echo $PATH"
          sh 'docker --version'
          sh 'npm --version'
         sh 'npm install'
