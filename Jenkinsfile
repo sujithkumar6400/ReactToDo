@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository') { 
         checkout scm
-       sh 'sudo yum install nodejs npm --enablerepo=epel'
+       sh 'yum install nodejs npm --enablerepo=epel'
     }
     stage ('Install') {
         sh "echo $PATH"
