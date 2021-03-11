@@ -5,7 +5,6 @@ node {
         checkout scm
     }
     stage ('Install') {
-        sh 'npm --version'
         sh 'npm install'
     }
 
