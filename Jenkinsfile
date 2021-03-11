@@ -2,11 +2,11 @@ node {
     def app
 
     stage('Clone repository') {  
-
+        sh 'npm --version'
         checkout scm
     }
     stage ('Install') {
-        sh 'apt-get update && apt-get install nodejs'
+        sh 'npm --version'
         sh 'npm install'
     }
 
@@ -17,7 +17,7 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-         sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:2 .'
-         sh 'docker image push sujithkumar597/reacttodo:2 .'
+         sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:100 .'
+         sh 'docker image push sujithkumar597/reacttodo:100 .'
     }
 }
