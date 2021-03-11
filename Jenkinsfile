@@ -8,12 +8,12 @@ node {
     stage ('Install') {
         sh "echo $PATH"
          sh 'docker --version'
-         sh 'npm --version'
-        sh 'npm install'
+         sh 'sudo npm --version'
+        sh 'sudo npm install'
     }
 
     stage ('Build') {
-        sh 'npm build'
+        sh 'sudo npm build'
     }
 
 
