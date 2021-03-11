@@ -7,13 +7,15 @@ node {
     }
     stage ('Install') {
         sh "echo $PATH"
+        sh 'cat /home/jenkins/npmrc/.npmrc > ~/.npmrc'
+        sh 'npm cache clean -f'
          sh 'docker --version'
-         sh 'sudo npm --version'
-        sh 'sudo npm install'
+         sh 'npm --version'
+        sh 'npm install'
     }
 
     stage ('Build') {
-        sh 'sudo npm build'
+        sh 'npm build'
     }
 
 
