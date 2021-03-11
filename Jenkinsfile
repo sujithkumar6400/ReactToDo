@@ -1,15 +1,9 @@
 node {
     def app
 
-    env.NODEJS_HOME = "${tool 'Node 6.x'}"
-    // on linux / mac
-    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
-    
-    sh 'npm --version'
-
     stage('Clone repository') { 
         checkout scm
-       
+       sh 'sudo yum install nodejs npm --enablerepo=epel'
     }
     stage ('Install') {
         sh "echo $PATH"
