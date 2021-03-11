@@ -7,8 +7,6 @@ node {
     }
     stage ('Install') {
         sh "echo $PATH"
-        sh 'cat /home/jenkins/npmrc/.npmrc > ~/.npmrc'
-        sh 'npm cache clean -f'
          sh 'docker --version'
          sh 'npm --version'
         sh 'npm install'
