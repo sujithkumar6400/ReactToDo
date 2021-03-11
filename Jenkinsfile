@@ -3,8 +3,11 @@ node {
 
     stage('Clone repository') { 
         checkout scm
+       
     }
     stage ('Install') {
+         sh 'docker --version'
+         sh 'npm --version'
         sh 'npm install'
     }
 
