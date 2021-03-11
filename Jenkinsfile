@@ -1,8 +1,7 @@
 node {
     def app
 
-    stage('Clone repository') {  
-        sh 'npm --version'
+    stage('Clone repository') { 
         checkout scm
     }
     stage ('Install') {
