@@ -17,7 +17,7 @@ node {
     }
 
     stage ('Build') {
-        sh 'npm start'
+        sh 'npm run build'
     }
 
 
