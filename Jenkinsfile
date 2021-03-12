@@ -5,6 +5,7 @@ node {
         sh "echo $PATH"
         sh 'docker --version'
         sh 'npm --version'
+        sh 'npm cache clean -f'
     }
 
     stage('Clone repository') { 
