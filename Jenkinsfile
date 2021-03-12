@@ -1,11 +1,5 @@
 node {
     def app
-
-    environment {
-        registry = "sujithkumar597/reacttodo"
-        registryCredentials = 'dockerhub_id'
-        dockerImage = ''
-    }
     
     stage('Environment verification'){
         sh "echo $PATH"
@@ -29,11 +23,13 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-        script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
-            docker.withRegistry( '', registryCredential ) { 
-                dockerImage.push()
-            }
+        app = docker.build("sujithkumar597/reacttodo")
+        app.inside {
+            sh 'echo "Tests passed"'
+        }
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
         }
     }
 }
