@@ -8,7 +8,6 @@ node {
     }
     stage ('Install') {
         sh "echo $PATH"
-        sh "which npm"
         sh 'npm --version'
         sh 'npm cache clean -f'
          sh 'docker --version'
