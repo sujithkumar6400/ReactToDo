@@ -23,7 +23,7 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-
+         sh 'docker ls'
          sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:100 .'
          sh 'docker image push sujithkumar597/reacttodo:100 .'
     }
