@@ -1,5 +1,11 @@
 node {
     def app
+    
+    stage('Environment verification'){
+        sh "echo $PATH"
+        sh 'docker --version'
+        sh 'npm --version'
+    }
 
     stage('Clone repository') { 
         checkout scm
@@ -7,21 +13,17 @@ node {
         sh "echo $PATH"
     }
     stage ('Install') {
-        sh "echo $PATH"
-        sh 'npm --version'
-        sh 'npm cache clean -f'
-         sh 'docker --version'
-         sh 'npm --version'
         sh 'npm install'
     }
 
     stage ('Build') {
-        sh 'npm build'
+        sh 'npm start'
     }
 
 
     stage('Build image') {
         echo "Starting Publish To Docker"
+
          sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:100 .'
          sh 'docker image push sujithkumar597/reacttodo:100 .'
     }
