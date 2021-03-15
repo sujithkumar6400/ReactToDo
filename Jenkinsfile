@@ -33,4 +33,10 @@ node {
             app.push("latest")
         }
     }
+
+    post { 
+        always { 
+            cleanWs()
+        }
+    }
 }
