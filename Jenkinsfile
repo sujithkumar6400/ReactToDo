@@ -1,8 +1,7 @@
-node PhysicalNode{
+node ('PhysicalNode') {
     def app
     
     stage('Environment verification'){
-        sh "echo $PATH"
         sh 'docker --version'
         sh 'npm --version'
         sh 'npm cache clean -f'
@@ -10,8 +9,6 @@ node PhysicalNode{
 
     stage('Clone repository') { 
         checkout scm
-       
-        sh "echo $PATH"
     }
     stage ('Install') {
         sh 'npm install'
