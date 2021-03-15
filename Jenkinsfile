@@ -1,4 +1,4 @@
-node {
+node PhysicalNode{
     def app
     
     stage('Environment verification'){
