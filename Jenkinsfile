@@ -1,7 +1,5 @@
 node {
     def app
-
-    tools {nodejs "nodejs"}
     
     stage('Environment verification'){
         sh 'docker --version'
