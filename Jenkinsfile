@@ -3,7 +3,6 @@ node {
     
     stage('Environment verification'){
         sh 'docker --version'
-        sh 'Whereis npm'
         sh 'echo $PATH'
         sh 'npm --version'
         sh 'npm cache clean -f'
