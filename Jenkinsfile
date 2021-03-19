@@ -22,11 +22,8 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-        app = docker.build("sujithkumar597/reacttodo")
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
+        sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:${BUILD_NUMBER} .' 
+        sh 'docker image push sujithkumar597/reacttodo:${BUILD_NUMBER}'
     }
 
     post { 
