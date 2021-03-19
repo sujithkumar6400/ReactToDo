@@ -3,6 +3,7 @@ node {
 
     stage('Environment verification'){
         sh 'docker --version'
+        sh 'docker image ls'
         sh 'echo $PATH'
         sh 'npm --version'
         sh 'npm cache clean -f'
@@ -22,7 +23,8 @@ node {
 
     stage('Build image') {
         echo "Starting Publish To Docker"
-        sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:${BUILD_NUMBER} .' 
+        sh 'docker login -u sujithkumar597'
+        sh 'docker build -f Dockerfile -t sujithkumar597/reacttodo:${BUILD_NUMBER} .'
         sh 'docker image push sujithkumar597/reacttodo:${BUILD_NUMBER}'
     }
 
